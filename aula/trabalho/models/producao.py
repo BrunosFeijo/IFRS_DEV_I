@@ -1,16 +1,17 @@
+from django.core.validators import MinLengthValidator
 from trabalho.models.base import *
 # from .genero import Genero
 
 
 class Producao(BaseModel):
-    titulo = ... # models.CharField(min_length=1, max_length=200)
-    sinopse = ... # models.CharField(min_length=10, max_length=500)
+    titulo = models.CharField(max_length=200, validators=[MinLengthValidator(1)])
+    sinopse = models.CharField(max_length=500, validators=[MinLengthValidator(10)])
     genero = ... # models.CharField(max_length=50, choices=[(tag.name, tag.value) for tag in Genero])
-    classificacao = ... # models.CharField(min_length=1, max_length=10)
+    classificacao = models.CharField(max_length=10, validators=[MinLengthValidator(1)])
     nota = models.FloatField(default=0)
     duracao = ...
     popularidade = models.IntegerField(default=0)
-    especificacoes = ... # models.CharField(min_length=5, max_length=50)
+    especificacoes = models.CharField(max_length=50, validators=[MinLengthValidator(5)])
     data_lancamento = ...
 
     class Meta:
