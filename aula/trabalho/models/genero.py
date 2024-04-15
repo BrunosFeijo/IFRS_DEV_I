@@ -1,30 +1,31 @@
-from enum import Enum
+from django.utils.translation import gettext_lazy as _
+from django.db import models
 
 
-class Genero(Enum):
-    ACTION = "Ação"
-    ADULT = "Adulto"
-    ADVENTURE = "Aventura"
-    ANIMATION = "Animação"
-    BIOGRAPHY = "Biografia"
-    COMEDY = "Comédia"
-    CRIME = "Crime"
-    DOCUMENTARY = "Documentário"
-    DRAMA = "Drama"
-    DRAMEDY = "Dramédia"
-    EDUCATIONAL = "Educacional"
-    FAMILY = "Família"
-    FANTASY = "Fantasia"
-    HISTORY = "História"
-    HORROR = "Terror"
-    MUSICAL = "Musical"
-    MYSTERY = "Mistério"
-    NOIR = "Noir"
-    PSYCHOLOGICAL = "Psicológico"
-    ROMANCE = "Romance"
-    SCIFI = "Ficção Científica"
-    SPORT = "Esporte"
-    SUPERHERO = "Super-herói"
-    THRILLER = "Suspense"
-    WAR = "Guerra"
-    WESTERN = "Faroeste"
+class Genero(models.TextChoices):
+    ACTION = "ACTION", _("Ação")
+    ADULT = "ADULT", _("Adulto")
+    ADVENTURE = "ADVENTURE", _("Aventura")
+    ANIMATION = "ANIMATION", _("Animação")
+    BIOGRAPHY = "BIOGRAPHY", _("Biografia")
+    COMEDY = "COMEDY", _("Comédia")
+    CRIME = "CRIME", _("Crime")
+    DOCUMENTARY = "DOCUMENTARY", _("Documentário")
+    DRAMA = "DRAMA", _("Drama")
+    DRAMEDY = "DRAMEDY", _("Dramédia")
+    EDUCATIONAL = "EDUCATIONAL", _("Educacional")
+    FAMILY = "FAMILY", _("Família")
+    FANTASY = "FANTASY", _("Fantasia")
+    HISTORY = "HISTORY", _("História")
+    HORROR = "HORROR", _("Terror")
+    MUSICAL = "MUSICAL", _("Musical")
+    MYSTERY = "MYSTERY", _("Mistério")
+    NOIR = "NOIR", _("Noir")
+    PSYCHOLOGICAL = "PSYCHOLOGICAL", _("Psicológico")
+    ROMANCE = "ROMANCE", _("Romance")
+    SCIFI = "SCIFI", _("Ficção Científica")
+    SPORT = "SPORT", _("Esporte")
+    SUPERHERO = "SUPERHERO", _("Super-herói")
+    THRILLER = "THRILLER", _("Suspense")
+    WAR = "WAR", _("Guerra")
+    WESTERN = "WESTERN", _("Faroeste")
