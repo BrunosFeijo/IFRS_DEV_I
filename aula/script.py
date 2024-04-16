@@ -1,4 +1,4 @@
-from random import random
+import random
 
 from exemplo.models.example import Example
 from django.contrib.auth import get_user_model
@@ -87,43 +87,40 @@ def deletar_todos():
         time.delete()
     print("Deletados com sucesso!")
 
+while True:
+    print("\n=== MENU ===")
+    print("1. Guardar dados")
+    print("2. Criar SuperUsuário")
+    print("3. Atualizar / Consultar")
+    print("4. Deletar")
+    print("5. Consultar 1 registro")
+    print("6. Consultar (5 elementos)")
+    print("7. Deletar todos os elementos")
+    print("0. Sair")
 
-def __main__():
-    while True:
-        print("\n=== MENU ===")
-        print("1. Guardar dados")
-        print("2. Criar SuperUsuário")
-        print("3. Atualizar / Consultar")
-        print("4. Deletar")
-        print("5. Consultar 1 registro")
-        print("6. Consultar (5 elementos)")
-        print("7. Deletar todos os elementos")
-        print("0. Sair")
+    opcao = input("Escolha uma opção: ")
 
-        opcao = input("Escolha uma opção: ")
+    if opcao == "1":
+        gerar_dados()
+    elif opcao == "2":
+        criar_superuser()
+    elif opcao == "3":
+        atualizar_consultar()
+    elif opcao == "4":
+        deletar()
+    elif opcao == "5":
+        consultar_registro()
+    elif opcao == "6":
+        consultar_5_elementos()
+    elif opcao == "7":
+        deletar_todos()
+    elif opcao == "0":
+        print("Saindo do programa...")
+        break
+    else:
+        print("Opção inválida. Escolha novamente.")
 
-        if opcao == "1":
-            gerar_dados()
-        elif opcao == "2":
-            criar_superuser()
-        elif opcao == "3":
-            atualizar_consultar()
-        elif opcao == "4":
-            deletar()
-        elif opcao == "5":
-            consultar_registro()
-        elif opcao == "6":
-            consultar_5_elementos()
-        elif opcao == "7":
-            deletar_todos()
-        elif opcao == "0":
-            print("Saindo do programa...")
-            break
-        else:
-            print("Opção inválida. Escolha novamente.")
-
-    print("Fim do programa.")
+print("Fim do programa.")
 
 
-if __name__ == "__main__":
-    __main__()
+print('TEste')
