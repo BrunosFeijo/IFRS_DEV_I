@@ -1,13 +1,13 @@
 from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
 from trabalho.models.base import *
 
-from aula.trabalho.models.genero import Genero
+from trabalho.models.genero import Genero
 
 
 class Producao(BaseModel):
     titulo = models.CharField(max_length=100, validators=[MinLengthValidator(1)])
     sinopse = models.CharField(max_length=500, validators=[MinLengthValidator(10)])
-    genero = models.CharField(max_length=2, choices=Genero, default=Genero.ACTION, )
+    genero = models.CharField(max_length=100, choices=Genero, default=Genero.ACTION, )
     classificacao = models.CharField(max_length=10, validators=[MinLengthValidator(1)])
     quantidade_avaliacoes: models.IntegerField(default=0, validators=[MinValueValidator(0)])
     nota = models.FloatField(default=1, validators=[MinValueValidator(1), MaxValueValidator(10)])
