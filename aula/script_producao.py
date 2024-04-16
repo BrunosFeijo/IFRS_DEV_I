@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from aula.trabalho.models import Genero
+from trabalho.models.genero import Genero
 from trabalho.models.producao import Producao
 from django.contrib.auth import get_user_model
 
@@ -21,7 +21,7 @@ def gerar_dados():
         filme = {
             'titulo': 'Filme ' + str(i),
             'sinopse': 'Sinopse do Filme ' + str(i),
-            'genero': Genero.ACAO,
+            'genero': Genero.ACTION,
             'classificacao': 'Livre',
             'quantidade_avaliacoes': i,
             'nota': i if i <= 10 else i - 6,

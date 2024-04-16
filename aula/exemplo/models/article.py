@@ -1,7 +1,7 @@
 from exemplo.models.base import *
 from django.db import models
 
-from aula.exemplo.models.reporter import Reporter
+from .reporter import Reporter
 
 
 class Article(BaseModel):
@@ -10,4 +10,4 @@ class Article(BaseModel):
     reporter = models.ForeignKey(Reporter, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return f'{self.title} - {self.reporter.name}'
