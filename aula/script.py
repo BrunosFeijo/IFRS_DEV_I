@@ -122,5 +122,3 @@ while True:
 
 print("Fim do programa.")
 
-
-print('TEste')
