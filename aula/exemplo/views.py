@@ -3,7 +3,7 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from aula.exemplo.models import Person
+from exemplo.models import Person
 
 # Create your views here.
 def teste(request):

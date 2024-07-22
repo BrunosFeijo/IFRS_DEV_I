@@ -1,6 +1,8 @@
 from django.contrib.auth import admin
 from django.urls import path, include
-from aula.exemplo import views
+from exemplo import views
+
+app_name = 'exemplo'
 
 urlpatterns = [
     path('teste',views.teste),
@@ -8,5 +10,5 @@ urlpatterns = [
     path('parametro/<str:nome>',views.parametro),
     path('contar/<str:nome>',views.contar),
     path('index',views.index),
-    path('person<int:id>',views.person),
+    path('person/<int:id>',views.person),
 ]
