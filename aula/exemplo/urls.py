@@ -1,6 +1,6 @@
 from django.contrib.auth import admin
 from django.urls import path, include
-from . import views
+from aula.exemplo import views
 
 urlpatterns = [
     path('teste',views.teste),

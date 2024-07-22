@@ -5,16 +5,16 @@ from django.shortcuts import render
 
 from aula.exemplo.models import Person
 
-
 # Create your views here.
 def teste(request):
     return HttpResponse("Conteúdo do Site")
+
 
 def saudacao(request):
     hoje = datetime.now()
     if hoje.hour <= 12:
         mensagem = "Bom dia"
-    elif hoje.hour >= 12 and hoje.hour <= 18:
+    elif 12 <= hoje.hour <= 18:
         mensagem = "Boa tarde"
     else:
         mensagem = "Boa noite"
@@ -29,12 +29,15 @@ def parametro(request, nome):
     nome = nome.upper()
     return HttpResponse(nome)
 
+
 def contar(request, nome):
     tamanho = len(nome)
     return HttpResponse(tamanho)
 
+
 def index(request):
     return render(request, 'base.html',context={"valor": "Bruno"},)
+
 
 def person(request,id):
     p1 = Person.objects.get(id=id)
@@ -43,11 +46,12 @@ def person(request,id):
     }
     return render(request, "exemplo/person.html", contexto)
 
+
 def list_persons(request):
     p1 = Person.objects.all()
     contexto = {
         "persons": p1
     }
-    return render(request, "exemplo/person.html", contexto)
+    return render(request, "exemplo/persons.html", contexto)
 
 
