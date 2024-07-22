@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block conteudo %}
+    <h2>Person</h2>
+    <h3>Deletar:  </h3>{{person.name}}
+    <h3>CPF: </h3>{{person.cpf}}
+    <h3>Tem certeza?</h3>
+
+    <form id id="person" action="{% url 'exemplo:delete_pessoa' person.id %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" id="person_id" name="person_id"
+               value="{{ person.id }}">
+        <button type="submit" class="btn btn-danger btn-lg" form="person"
+                value="Deletar">Sim, deletar</button>
+        <a class="btn btn-secondary btn-lg" role="button"
+            href="{% url 'exemplo:read_pessoa' %}"> Voltar</a>
+    </form>
+
+    <br>
+    <a class="btn btn-secondary btn-lg" role="button"
+       href="{% url 'exemplo:read_pessoa' %}"> Voltar</a>
+
+{% endblock conteudo %}

@@ -10,5 +10,7 @@ urlpatterns = [
     path('parametro/<str:nome>',views.parametro),
     path('contar/<str:nome>',views.contar),
     path('index',views.index),
-    path('person/<int:id>',views.person),
+    path('person/read/<int:id>',views.read, name="read_pessoa"),
+    path('persons', views.list_persons, name="pessoas"),
+    path('person/delete/<int:id>',views.delete, name="delete_pessoa"),
 ]

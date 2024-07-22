@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 
 from exemplo.models import Person
 
@@ -39,7 +39,7 @@ def index(request):
     return render(request, 'base.html',context={"valor": "Bruno"},)
 
 
-def person(request,id):
+def read(request,id):
     p1 = Person.objects.get(id=id)
     contexto = {
         "person": p1
@@ -55,3 +55,20 @@ def list_persons(request):
     return render(request, "exemplo/persons.html", contexto)
 
 
+def delete(request,id):
+    p1 = get_object_or_404(Person, pk=id)
+    try:
+        if request.method == 'POST':
+            v_person_id = request.POST.get("id", None)
+            if int(v_person_id) == id:
+                p1.delete()
+                return redirect('exemplo:list_persons')
+            else:
+                contexto = {
+                    "person": p1
+                }
+                return render(request, "exemplo/delete_pessoa.html", contexto)
+    except Exception as e:
+        contexto = {}
+        print(e)
+        return render(request, "exemplo/list_persons.html", contexto)

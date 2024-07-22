@@ -6,6 +6,11 @@
 
         {% for person in persons %}
             <p>{{person.id}} - {{person.name}}</p>
+            <a class="btn btn-secondary btn-lg" role="button"
+                href="{% url 'exemplo:read_pessoa' person.id %}"> Detalhar</a>
+            <a class="btn btn-secondary btn-lg" role="button"
+                href="{% url 'exemplo:delete_pessoa' person.id %}"> Deletar</a>
+
         {% endfor %}
 
     {% endif %}
